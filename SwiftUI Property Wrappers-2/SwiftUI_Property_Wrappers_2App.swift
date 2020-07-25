@@ -9,9 +9,10 @@ import SwiftUI
 
 @main
 struct SwiftUI_Property_Wrappers_2App: App {
+    let user = User(name: "Stewart", luckyNumber:  12)
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().environmentObject(user)
         }
     }
 }

@@ -8,17 +8,18 @@
 import SwiftUI
 
 struct NavDestinationView: View {
+    @EnvironmentObject var user: User
     var body: some View {
             VStack(spacing: 20) {
                 HStack {
                     Text("Lucky Number")
-                    Text("??")
+                    Text("\(user.luckyNumber)")
                         .foregroundColor(.white)
                         .padding()
                         .background(Color.blue)
                 }
                 Button("New Number") {
-                    
+                    user.luckyNumber = Int.random(in: 21...30)
                 }
                 .frame(width: 150)
                 .foregroundColor(.white)
@@ -32,15 +33,18 @@ struct NavDestinationView: View {
                 ToolbarItem(placement: .principal) { // <3>
                     VStack {
                         Text("User Name").font(.subheadline)
-                        Text("Anonymous").font(.headline)
+                        Text("\(user.name)").font(.headline)
                     }
                 }
-        }
+            }
     }
 }
 
 struct NavDestinationView_Previews: PreviewProvider {
     static var previews: some View {
-        NavDestinationView()
+        NavigationView {
+            NavDestinationView().environmentObject(User(name: "Stewart", luckyNumber: 25))
+        }
+
     }
 }
