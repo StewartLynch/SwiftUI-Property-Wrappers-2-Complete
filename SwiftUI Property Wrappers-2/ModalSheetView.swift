@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-import SwiftUI
-
 struct ModalSheetView: View {
     @Binding var isShowing: Bool
     @EnvironmentObject var user: User
@@ -46,6 +44,6 @@ struct ModalSheetView: View {
 
 struct ModalSheetView_Previews: PreviewProvider {
     static var previews: some View {
-        ModalSheetView(isShowing: .constant(true)).environmentObject(User(name: "Stewart", luckyNumber: 15))
+            ModalSheetView(isShowing: .constant(true)).environmentObject(User(name: "Stewart", luckyNumber: 15))
     }
 }
