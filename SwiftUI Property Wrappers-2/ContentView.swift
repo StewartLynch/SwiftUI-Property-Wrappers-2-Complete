@@ -43,7 +43,6 @@ struct ContentView: View {
                     NavigationLink(destination: NavDestinationView()) {
                         Text("Go Next")
                     }
-                    
                 }
             }
         }
